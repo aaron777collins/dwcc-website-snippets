@@ -1610,6 +1610,32 @@
                 transition-delay: 0.52s;*/
                 /*background-color: purple;*/
             }
+            .slidein3 {
+                opacity: 0;
+                animation-name: slidein3;
+                animation-duration: 0.6s;
+                animation-delay: 0.5s;
+                animation-fill-mode: forwards;
+                /*transition-property: translate;
+                transition-timing-function: ease;
+                transition-duration: 0.6s;
+                transition-delay: 0.52s;*/
+                /*background-color: purple;*/
+            }
+
+            @keyframes slidein3 {
+                from {
+                    margin-top: 10px;
+                    height: 120%;
+                    opacity: 0;
+                  }
+                  to {
+                    margin-top: 0;
+                    height: 100%;
+                    opacity: 1;
+                  }
+            }
+
             @keyframes slidein2 {
                 from {
                     margin-top: 10px;
@@ -1640,6 +1666,15 @@
                 align-items: center;
                 border-radius: 8px;
             }
+            .subnavtitle {
+                /*transition: background-color 0.2s ease-in;*/
+                text-decoration: underline 3px rgba(0,0,0,0);
+                transition: text-decoration-color 0.2 ease-in !important;
+                cursor: grab;
+            }
+            .subnavtitle:hover {
+                text-decoration-color: rgba(0,0,0,1);
+            }
             .subnavtab {
                 /*transition: background-color 0.2s ease-in;*/
                 text-decoration: underline 1px rgba(0,0,0,0);
@@ -1661,7 +1696,9 @@
             }*/
         </style>
         <div class="subnav">
-            <h1>Initiatives</h1>
+            <div class="slideInContainer">
+                <h1 class="subnavtitle slidein3" href="immersion-in-the-neighbourhood"onclick="window.location='immersion-in-the-neighbourhood'">Initiatives</h1>
+            </div>
             <div class="slideInContainer">
                 <div class="subnavbar slidein2">
                     <a class="subnavtab" href="/test1">Test1</a>
