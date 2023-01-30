@@ -1,37 +1,88 @@
 <style>
-    :root {
-    --fc-button-text-color: #fff;
-    --fc-button-bg-color: #228B22;
-    --fc-button-border-color: #228B22;
-    --fc-button-hover-bg-color: #1e731e;
-    --fc-button-hover-border-color: #1a5f1a;
-    --fc-button-active-bg-color: #1e731e;
-    --fc-button-active-border-color: #1a5f1a;
-    }
-    </style>
-    <script src="
-    https://cdn.jsdelivr.net/npm/fullcalendar@6.0.3/index.global.min.js
-    "></script>
-    <script src="
-    https://cdn.jsdelivr.net/npm/@fullcalendar/google-calendar@6.0.3/index.global.min.js
-    "></script>
-    <link href="
-    https://cdn.jsdelivr.net/npm/fullcalendar@6.0.3/main.min.css
-    " rel="stylesheet"></link>
-    <script>
 
-          document.addEventListener('DOMContentLoaded', function() {
-            var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-              initialView: 'dayGridMonth',
-              headerToolbar: { center: 		'dayGridMonth,timeGridWeek' }, // buttons for switching between views
-              height: 'auto',
-              googleCalendarApiKey: 'AIzaSyBifvVpjd5Sn1q5DZNswKqP1MqIY3zGjfo',
-              events: {
-                  googleCalendarId: '0009313a43b31fc53f0102334f0822cef235baadae7fce6493a0ef659ea9acbd@group.calendar.google.com',
+  .calendar-container {
+   min-width: 750px;
+}
+
+  :root {
+  --fc-button-text-color: #fff;
+  --fc-button-bg-color: #228B22;
+  --fc-button-border-color: #228B22;
+  --fc-button-hover-bg-color: #1e731e;
+  --fc-button-hover-border-color: #1a5f1a;
+  --fc-button-active-bg-color: #1e731e;
+  --fc-button-active-border-color: #1a5f1a;
+  }
+/* added so titles arent cut off*/
+/*
+.fc-daygrid-event > .fc-event-title {
+  white-space: normal;
+  text-overflow: ellipsis;
+  max-height:20px;
+  transition: max-height 2s ease-in-out
+}
+.fc-daygrid-event > .fc-event-title:hover {
+  max-height:none!important;
+}
+*/
+.fc-daygrid-event {
+  white-space: normal;
+  max-height:none !important;
+}
+.fc-daygrid-event > fc-event-title {
+    white-space: normal;
+}
+/*
+.fc-event-main {
+  overflow: scroll;
+}
+
+div.fc-event-main::-webkit-scrollbar {
+width: 6px;               /* width of the entire scrollbar */
+}
+
+div.fc-event-main::-webkit-scrollbar-track {
+background: orange;        /* color of the tracking area */
+}
+
+div.fc-event-main::-webkit-scrollbar-thumb {
+background-color: grey;    /* color of the scroll thumb */
+border-radius: 10px;       /* roundness of the scroll thumb */
+border: 2px solid orange;  /* creates padding around scroll thumb */
+}
+*/
+
+  </style>
+  <script src="
+  https://cdn.jsdelivr.net/npm/fullcalendar@6.0.3/index.global.min.js
+  "></script>
+  <script src="
+  https://cdn.jsdelivr.net/npm/@fullcalendar/google-calendar@6.0.3/index.global.min.js
+  "></script>
+  <link href="
+  https://cdn.jsdelivr.net/npm/fullcalendar@6.0.3/main.min.css
+  " rel="stylesheet"></link>
+  <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+          var calendarEl = document.getElementById('calendar');
+          var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            headerToolbar: { center: 		'dayGridMonth,timeGridWeek' }, // buttons for switching between views
+            height: 'auto',
+            googleCalendarApiKey: 'AIzaSyBifvVpjd5Sn1q5DZNswKqP1MqIY3zGjfo',
+            eventSources: [
+             {
+                googleCalendarId: '0009313a43b31fc53f0102334f0822cef235baadae7fce6493a0ef659ea9acbd@group.calendar.google.com',
+            },
+              {
+                googleCalendarId: 'f01e5e7149333dabd9e784d728a196b94b7e2bc7530305fc4ebee83636cc3d15@group.calendar.google.com',
+                className: 'weekly',
+                color: '#ff0000'
               }
-            });
-            calendar.render();
+              ]
           });
+          calendar.render();
+        });
 
-        </script>
+      </script>
