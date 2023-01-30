@@ -68,7 +68,15 @@ border: 2px solid orange;  /* creates padding around scroll thumb */
           var calendarEl = document.getElementById('calendar');
           var calendar = new FullCalendar.Calendar(calendarEl, {
             initialView: 'dayGridMonth',
-            headerToolbar: { center: 		'dayGridMonth,timeGridWeek' }, // buttons for switching between views
+            views: {
+             dayGridMonth: { buttonText: 'grid-month'},
+             timeGridWeek: { buttonText: 'grid-week'},
+             listMonth: { buttonText: 'list-month'},
+
+            },
+            headerToolbar: {
+              center: 		'dayGridMonth,timeGridWeek listMonth'
+            }, // buttons for switching between views
             height: 'auto',
             googleCalendarApiKey: 'AIzaSyBifvVpjd5Sn1q5DZNswKqP1MqIY3zGjfo',
             eventSources: [
